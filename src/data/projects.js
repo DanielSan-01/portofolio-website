@@ -1,0 +1,125 @@
+export const projects = [
+  {
+    id: 'holidaze',
+    title: 'Holidaze - Venue Booking Platform',
+    shortDescription: 'A modern venue booking application built with React, Vite, and Tailwind CSS for sharing and booking venues.',
+    thumbnail: '/images/holidaze-thumb.jpg',
+    image: '/images/holidaze-main.jpg',
+    imageCaption: 'Holidaze venue manager dashboard showcasing booking statistics, revenue tracking, and property management features',
+    liveUrl: 'https://danielsan-01.github.io/Holidaze/',
+    githubUrl: 'https://github.com/DanielSan-01/Holidaze',
+    description: `Holidaze is a comprehensive venue booking platform that allows users to book accommodations and venue managers to list their properties. Built with modern React technologies and featuring a clean, responsive design with advanced dashboard functionality.`,
+    reflections: `
+      <h3>What I Learned</h3>
+      <p>This project significantly expanded my skills in modern web development:</p>
+      <ul>
+        <li>Advanced React patterns with hooks and context</li>
+        <li>Tailwind CSS for rapid UI development and responsive design</li>
+        <li>API integration and complex data management</li>
+        <li>User authentication and role-based authorization flows</li>
+        <li>Dashboard development with data visualization</li>
+        <li>GitHub Pages deployment with proper routing</li>
+      </ul>
+      
+      <h3>Challenges Faced</h3>
+      <p>The main challenges included implementing complex booking logic with date validation, managing different user roles (customers vs venue managers), creating an intuitive dashboard interface, and ensuring data consistency across the application. Working with external APIs and handling various edge cases in the booking flow required careful planning and robust error handling.</p>
+      
+      <h3>Improvements Made</h3>
+      <p>Based on feedback and self-reflection, I enhanced:</p>
+      <ul>
+        <li>User experience with better loading states and real-time feedback</li>
+        <li>Code organization using custom hooks and reusable components</li>
+        <li>Comprehensive error handling and form validation</li>
+        <li>Mobile responsiveness and accessibility features</li>
+        <li>Performance optimization with React best practices and lazy loading</li>
+        <li>Dashboard functionality with improved data visualization</li>
+      </ul>
+      
+      <h3>Self-Assessment</h3>
+      <p>This project represents a significant milestone in my development journey. I successfully integrated multiple complex features including user management, booking systems, and dashboard analytics while maintaining clean, maintainable code. The use of modern tools like Vite and Tailwind CSS improved my development workflow considerably, and the project demonstrates my ability to create production-ready applications.</p>
+    `,
+    technologies: ['React', 'Vite', 'Tailwind CSS', 'JavaScript', 'HTML5', 'CSS3']
+  },
+  {
+    id: 'agency2-fork',
+    title: 'The Spot - Event Platform Website',
+    shortDescription: 'A modern event platform website featuring Bergen cityscape, event listings, and interactive user interface.',
+    thumbnail: '/images/agency-thumb.jpg',
+    image: '/images/agency-main.jpg',
+    imageCaption: 'The Spot event platform showcasing Bergen cityscape background, upcoming events, and modern navigation design',
+    liveUrl: 'https://thespot-agency.netlify.app/',
+    githubUrl: 'https://github.com/DanielSan-01/Agency2-fork',
+    description: `"The Spot" is a modern event platform website that showcases events in Bergen, Norway. The site features a stunning cityscape background, event cards with detailed information, and a clean, professional navigation system. This project demonstrates advanced CSS layout techniques and responsive design principles.`,
+    reflections: `
+              <h3>What I Learned</h3>
+        <p>This project taught me valuable lessons in modern web development and design:</p>
+        <ul>
+          <li>Advanced CSS techniques for background overlays and image positioning</li>
+          <li>Creating engaging hero sections with cityscape imagery</li>
+          <li>Event card design and layout systems</li>
+          <li>Navigation design and user experience principles</li>
+          <li>Color theory and visual hierarchy in web design</li>
+          <li>Responsive design for event-based content</li>
+        </ul>
+        
+        <h3>Challenges Faced</h3>
+        <p>Key challenges included creating an immersive background experience with the Bergen cityscape while maintaining readability, designing effective event cards that display information clearly, implementing a clean navigation system, and ensuring the site worked well across different screen sizes. Balancing the visual impact of the background with functional content presentation was particularly challenging.</p>
+      
+              <h3>Improvements Made</h3>
+        <p>Through iterative development and feedback, I improved:</p>
+        <ul>
+          <li>Background image optimization and loading performance</li>
+          <li>Event card accessibility and keyboard navigation</li>
+          <li>Color contrast and readability over background images</li>
+          <li>Mobile responsiveness for event listings and navigation</li>
+          <li>Semantic HTML structure for better SEO and accessibility</li>
+          <li>CSS organization for maintainable styling systems</li>
+        </ul>
+        
+        <h3>Self-Assessment</h3>
+        <p>This project demonstrated my ability to create visually striking websites that balance aesthetics with functionality. Working with the Bergen cityscape background taught me valuable lessons about image optimization, visual hierarchy, and creating engaging user experiences. The event platform concept helped me understand how to present information in an organized, user-friendly manner.</p>
+    `,
+    technologies: ['JavaScript', 'CSS3', 'HTML5', 'Responsive Design']
+  },
+  {
+    id: 'community-science-museum',
+    title: 'Community Science Museum',
+    shortDescription: 'A vibrant educational website featuring colorful design, Einstein quotes, and science exhibitions built with HTML and CSS.',
+    thumbnail: '/images/museum-thumb.jpg',
+    image: '/images/museum-main.jpg',
+    imageCaption: 'Community Science Museum website featuring colorful exterior design, inspirational Einstein quote, and exhibitions on Cosmology and Evolution',
+    liveUrl: 'https://danielsan-01.github.io/Operation-lookingGlass-CSM---SP1-/',
+    githubUrl: 'https://github.com/DanielSan-01/Operation-lookingGlass-CSM---SP1-',
+    description: `The Community Science Museum website showcases a vibrant, educational platform designed to inspire learning and curiosity. Featuring a colorful museum exterior, inspirational quotes from Albert Einstein, and exhibitions covering topics like Cosmology and Evolution. Built entirely with HTML and CSS, demonstrating creative design solutions and educational content presentation.`,
+    reflections: `
+              <h3>What I Learned</h3>
+        <p>This foundational project taught me essential web development and design principles:</p>
+        <ul>
+          <li>Color theory and vibrant design implementation</li>
+          <li>Typography and inspirational content integration</li>
+          <li>CSS layout techniques for educational content</li>
+          <li>Creating engaging visual hierarchies with pure CSS</li>
+          <li>Semantic HTML structure for educational websites</li>
+          <li>Accessibility considerations for diverse audiences</li>
+        </ul>
+        
+        <h3>Challenges Faced</h3>
+        <p>Creating an engaging educational website without JavaScript presented unique challenges. Implementing the colorful, modern design while maintaining readability, organizing educational content effectively, ensuring the site appealed to diverse age groups, and creating visual interest through CSS-only solutions required careful planning and creative problem-solving.</p>
+      
+              <h3>Improvements Made</h3>
+        <p>Throughout development, I focused on improving:</p>
+        <ul>
+          <li>Color contrast and readability across the vibrant design</li>
+          <li>Typography hierarchy for educational content presentation</li>
+          <li>Navigation design for intuitive user experience</li>
+          <li>Mobile responsiveness for the colorful layout</li>
+          <li>Content organization for different exhibition topics</li>
+          <li>Accessibility features for educational institutions</li>
+        </ul>
+        
+        <h3>Self-Assessment</h3>
+        <p>This project demonstrated my ability to create engaging, educational websites that balance visual appeal with functionality. The colorful, modern design challenged me to work with vibrant color schemes while maintaining professionalism and readability. Incorporating inspirational content like Einstein's quote taught me about the importance of meaningful content in educational design. This foundation project proved invaluable for understanding design principles that I've applied to more complex projects.</p>
+    `,
+    technologies: ['HTML5', 'CSS3', 'Responsive Design', 'Web Accessibility']
+  }
+] 
