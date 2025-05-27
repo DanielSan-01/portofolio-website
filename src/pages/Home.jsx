@@ -8,11 +8,11 @@ const Home = () => {
     <div className="home">
       {/* Hero Section */}
       <section className="hero">
-        <div className="container">
+        <div className="container-custom">
           <div className="hero-content">
             <h1 className="hero-title">
-              Daniel Østensen
-              <span className="highlight"> Portfolio</span>
+              DanielSan
+              <span className="hero-subtitle">Portfolio</span>
             </h1>
             <p className="hero-description">
               Frontend Developer student at Noroff Fagskole, passionate about creating beautiful, 
@@ -38,7 +38,7 @@ const Home = () => {
 
       {/* Projects Section */}
       <section className="projects-section">
-        <div className="container">
+        <div className="container-custom">
           <div className="section-header">
             <h2 className="section-title">Featured Projects</h2>
             <p className="section-description">
@@ -48,7 +48,7 @@ const Home = () => {
           </div>
           
           <div className="projects-grid">
-            {projects.map((project) => (
+            {projects.slice(0, 3).map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
           </div>
@@ -57,20 +57,22 @@ const Home = () => {
 
       {/* About Section */}
       <section className="about-section">
-        <div className="container">
+        <div className="container-custom">
           <div className="about-content">
             <h2 className="about-title">About This Portfolio</h2>
-            <p className="about-text">
-              This portfolio showcases three key projects from my Frontend Development studies at Noroff Fagskole: 
-              Holidaze (venue booking platform), The Spot (event platform website), and Community Science Museum. Each project 
-              demonstrates my growth as a developer and includes detailed reflections on the 
-              learning process, challenges faced, and improvements made based on feedback.
-            </p>
-            <p className="about-text">
-              Built with React and modern web technologies, this portfolio itself represents 
-              my current skills in creating responsive, accessible, and performant web applications. 
-              Currently studying in Bergen, Norway, I'm passionate about frontend development and continuously learning new technologies.
-            </p>
+            <div className="about-text">
+              <p>
+                This portfolio showcases three key projects from my Frontend Development studies at Noroff Fagskole: 
+                Holidaze (venue booking platform), The Spot (event platform website), and Community Science Museum. Each project 
+                demonstrates my growth as a developer and includes detailed reflections on the 
+                learning process, challenges faced, and improvements made based on feedback.
+              </p>
+              <p>
+                Built with React and modern web technologies, this portfolio itself represents 
+                my current skills in creating responsive, accessible, and performant web applications. 
+                Currently studying in Bergen, Norway, I'm passionate about frontend development and continuously learning new technologies.
+              </p>
+            </div>
           </div>
         </div>
       </section>

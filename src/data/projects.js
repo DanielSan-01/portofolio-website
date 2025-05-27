@@ -1,10 +1,16 @@
+// Import actual project images
+import holidazeImg from '../assets/holidaze.png'
+import thespotImg from '../assets/thespot.png'
+import cmsImg from '../assets/cms.png'
+import auctionHouseImg from '../assets/auction-house.png'
+
 export const projects = [
   {
     id: 'holidaze',
     title: 'Holidaze - Venue Booking Platform',
     shortDescription: 'A modern venue booking application built with React, Vite, and Tailwind CSS for sharing and booking venues.',
-    thumbnail: '/images/holidaze-thumb.jpg',
-    image: '/images/holidaze-main.jpg',
+    thumbnail: holidazeImg,
+    image: holidazeImg,
     imageCaption: 'Holidaze venue manager dashboard showcasing booking statistics, revenue tracking, and property management features',
     liveUrl: 'https://danielsan-01.github.io/Holidaze/',
     githubUrl: 'https://github.com/DanielSan-01/Holidaze',
@@ -44,8 +50,8 @@ export const projects = [
     id: 'agency2-fork',
     title: 'The Spot - Event Platform Website',
     shortDescription: 'A modern event platform website featuring Bergen cityscape, event listings, and interactive user interface.',
-    thumbnail: '/images/agency-thumb.jpg',
-    image: '/images/agency-main.jpg',
+    thumbnail: thespotImg,
+    image: thespotImg,
     imageCaption: 'The Spot event platform showcasing Bergen cityscape background, upcoming events, and modern navigation design',
     liveUrl: 'https://thespot-agency.netlify.app/',
     githubUrl: 'https://github.com/DanielSan-01/Agency2-fork',
@@ -85,8 +91,8 @@ export const projects = [
     id: 'community-science-museum',
     title: 'Community Science Museum',
     shortDescription: 'A vibrant educational website featuring colorful design, Einstein quotes, and science exhibitions built with HTML and CSS.',
-    thumbnail: '/images/museum-thumb.jpg',
-    image: '/images/museum-main.jpg',
+    thumbnail: cmsImg,
+    image: cmsImg,
     imageCaption: 'Community Science Museum website featuring colorful exterior design, inspirational Einstein quote, and exhibitions on Cosmology and Evolution',
     liveUrl: 'https://danielsan-01.github.io/Operation-lookingGlass-CSM---SP1-/',
     githubUrl: 'https://github.com/DanielSan-01/Operation-lookingGlass-CSM---SP1-',
@@ -121,5 +127,46 @@ export const projects = [
         <p>This project demonstrated my ability to create engaging, educational websites that balance visual appeal with functionality. The colorful, modern design challenged me to work with vibrant color schemes while maintaining professionalism and readability. Incorporating inspirational content like Einstein's quote taught me about the importance of meaningful content in educational design. This foundation project proved invaluable for understanding design principles that I've applied to more complex projects.</p>
     `,
     technologies: ['HTML5', 'CSS3', 'Responsive Design', 'Web Accessibility']
+  },
+  {
+    id: 'auction-house',
+    title: 'Auction House - eCommerce Store',
+    shortDescription: 'A fully responsive online auction store built with React and Tailwind CSS featuring product browsing, search, and checkout.',
+    thumbnail: auctionHouseImg,
+    image: auctionHouseImg,
+    imageCaption: 'Auction House eCommerce platform showcasing product listings, search functionality, and shopping cart features',
+    liveUrl: 'https://danielsan-js2.netlify.app/',
+    githubUrl: 'https://github.com/DanielSan-01/auction-house-1',
+    description: `Auction House is a modern eCommerce platform built for the JavaScript Frameworks course assignment. This fully responsive online store features comprehensive product browsing, live search functionality, and a seamless checkout experience. The application demonstrates advanced React patterns and modern web development practices.`,
+    reflections: `
+      <h3>What I Learned</h3>
+      <p>This eCommerce project expanded my understanding of complex web applications:</p>
+      <ul>
+        <li>React state management for shopping cart functionality</li>
+        <li>Tailwind CSS for rapid prototyping and consistent design</li>
+        <li>Component-based architecture for scalable applications</li>
+        <li>Form validation and user input handling</li>
+        <li>Search and filtering functionality implementation</li>
+        <li>Responsive design principles for mobile commerce</li>
+      </ul>
+      
+      <h3>Challenges Faced</h3>
+      <p>The main challenges included implementing a robust shopping cart system with quantity management, creating an intuitive search experience, handling form validation for the contact form, and ensuring the checkout flow was smooth and user-friendly. Managing state across multiple components while maintaining performance was particularly challenging.</p>
+      
+      <h3>Improvements Made</h3>
+      <p>Based on testing and feedback, I enhanced:</p>
+      <ul>
+        <li>Search functionality with real-time filtering and suggestions</li>
+        <li>Shopping cart persistence and quantity controls</li>
+        <li>Form validation with clear error messaging</li>
+        <li>Mobile responsiveness for better mobile shopping experience</li>
+        <li>Loading states and user feedback throughout the application</li>
+        <li>Code organization and component reusability</li>
+      </ul>
+      
+      <h3>Self-Assessment</h3>
+      <p>This project successfully demonstrates my ability to build complete eCommerce solutions using modern React development practices. The integration of search, cart management, and checkout functionality showcases my understanding of complex state management and user experience design. The use of Tailwind CSS allowed for rapid development while maintaining a professional, consistent design system.</p>
+    `,
+    technologies: ['React', 'Tailwind CSS', 'JavaScript', 'HTML5', 'CSS3', 'Vite']
   }
 ] 

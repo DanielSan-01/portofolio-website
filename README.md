@@ -1,4 +1,4 @@
-# Daniel Østensen - Frontend Developer Portfolio
+# DanielSan - Frontend Developer Portfolio
 
 A modern, responsive portfolio website showcasing three key projects from my Frontend Development studies at Noroff Fagskole. Built with React and modern web technologies to demonstrate current skills and growth as a developer.
 
@@ -148,9 +148,9 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 👤 Author
 
-**Daniel Østensen**
+**DanielSan**
 - GitHub: [@DanielSan-01](https://github.com/DanielSan-01)
-- LinkedIn: [Daniel Østensen](https://www.linkedin.com/in/daniel-østensen-84483ab0/)
+- LinkedIn: [DanielSan](https://www.linkedin.com/in/daniel-%C3%B8stensen-84483ab0/)
 - Location: Bergen, Norway
 - School: Noroff Fagskole - Frontend Development
 

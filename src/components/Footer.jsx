@@ -6,11 +6,15 @@ const Footer = () => {
   
   return (
     <footer className="footer">
-      <div className="container">
+      <div className="container-custom">
         <div className="footer-content">
           <div className="footer-text">
-            <p>&copy; {currentYear} Daniel Østensen. All rights reserved.</p>
-            <p>Frontend Development Portfolio - Noroff Fagskole</p>
+            <p className="footer-copyright">
+              &copy; {currentYear} DanielSan. All rights reserved.
+            </p>
+            <p className="footer-subtitle">
+              Frontend Development Portfolio - Noroff Fagskole
+            </p>
           </div>
           
           <div className="footer-links">
@@ -24,7 +28,7 @@ const Footer = () => {
               <Github size={20} />
             </a>
             <a 
-              href="https://www.linkedin.com/in/daniel-østensen-84483ab0/" 
+              href="https://www.linkedin.com/in/daniel-%C3%B8stensen-84483ab0/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="footer-link"
@@ -33,7 +37,7 @@ const Footer = () => {
               <Linkedin size={20} />
             </a>
             <a 
-              href="mailto:daniel.ostensen@example.com" 
+              href="mailto:danoes00993@stud.noroff.no" 
               className="footer-link"
               aria-label="Email Contact"
             >

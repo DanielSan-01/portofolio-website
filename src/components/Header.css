@@ -1,26 +1,24 @@
 .header {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 100;
-  backdrop-filter: blur(10px);
+  z-index: 50;
+  backdrop-filter: blur(8px);
 }
 
-.header .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
+.header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 0;
 }
 
 .logo {
-  text-decoration: none;
   color: white;
-  font-weight: 700;
-  font-size: 1.5rem;
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-decoration: none;
   transition: transform 0.3s ease;
 }
 
@@ -37,8 +35,8 @@
 
 .nav {
   display: flex;
-  gap: 2rem;
   align-items: center;
+  gap: 1rem;
 }
 
 .nav-link {
@@ -46,11 +44,12 @@
   align-items: center;
   gap: 0.5rem;
   color: white;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
   font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
 }
 
 .nav-link:hover {
@@ -58,24 +57,32 @@
   transform: translateY(-2px);
 }
 
-.nav-link span {
-  font-size: 0.9rem;
+.nav-text {
+  display: none;
 }
 
-@media (max-width: 768px) {
-  .header .container {
-    padding: 1rem;
-  }
-  
+/* Responsive Design */
+@media (min-width: 640px) {
   .nav {
-    gap: 1rem;
+    gap: 2rem;
   }
   
-  .nav-link span {
-    display: none;
+  .nav-text {
+    display: inline;
   }
   
   .nav-link {
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  .nav-link {
+    padding: 0.75rem 1rem;
   }
 } 

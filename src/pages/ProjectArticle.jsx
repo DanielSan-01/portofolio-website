@@ -13,10 +13,10 @@ const ProjectArticle = () => {
   if (!project) {
     return (
       <div className="project-not-found">
-        <div className="container">
+        <div className="container-custom">
           <h1>Project Not Found</h1>
           <p>The project you're looking for doesn't exist.</p>
-          <Link to="/" className="back-link">
+          <Link to="/" className="btn-primary">
             <ArrowLeft size={20} />
             Back to Home
           </Link>
@@ -37,7 +37,7 @@ const ProjectArticle = () => {
 
   return (
     <article className="project-article">
-      <div className="container">
+      <div className="container-custom">
         {/* Back Navigation */}
         <Link to="/" className="back-link">
           <ArrowLeft size={20} />
@@ -54,7 +54,7 @@ const ProjectArticle = () => {
               href={project.liveUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="action-button primary"
+              className="btn-primary"
             >
               <ExternalLink size={20} />
               View Live Site
@@ -63,14 +63,14 @@ const ProjectArticle = () => {
               href={project.githubUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="action-button secondary"
+              className="btn-secondary"
             >
               <Github size={20} />
               View Repository
             </a>
             <button 
               onClick={handleCopyLink}
-              className="action-button secondary"
+              className="btn-secondary"
             >
               {copySuccess ? <Share2 size={20} /> : <Copy size={20} />}
               {copySuccess ? 'Copied!' : 'Share'}
@@ -80,17 +80,12 @@ const ProjectArticle = () => {
 
         {/* Project Image */}
         <div className="article-image">
-          <img 
-            src={project.image} 
-            alt={project.title}
-            onError={(e) => {
-              // Create a more specific placeholder based on project type
-              const placeholderText = project.id === 'holidaze' ? 'Holidaze+Dashboard' :
-                                    project.id === 'agency2-fork' ? 'The+Spot+Events' :
-                                    project.id === 'community-science-museum' ? 'Colorful+Museum' : 'Project+Image'
-              e.target.src = `https://via.placeholder.com/800x400/667eea/ffffff?text=${placeholderText}`
-            }}
-          />
+          <div className="image-container">
+            <img 
+              src={project.image} 
+              alt={project.title}
+            />
+          </div>
           <p className="image-caption">{project.imageCaption}</p>
         </div>
 
@@ -158,12 +153,6 @@ const ProjectArticle = () => {
                   <img 
                     src={otherProject.thumbnail} 
                     alt={otherProject.title}
-                    onError={(e) => {
-                      const placeholderText = otherProject.id === 'holidaze' ? 'Holidaze' :
-                                             otherProject.id === 'agency2-fork' ? 'The+Spot' :
-                                             otherProject.id === 'community-science-museum' ? 'Museum' : 'Project'
-                      e.target.src = `https://via.placeholder.com/300x200/667eea/ffffff?text=${placeholderText}`
-                    }}
                   />
                   <div className="other-project-info">
                     <h3>{otherProject.title}</h3>
