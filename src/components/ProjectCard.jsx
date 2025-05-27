@@ -1,37 +1,15 @@
 import { Link } from 'react-router-dom'
-import { ExternalLink, Github } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import './ProjectCard.css'
 
 const ProjectCard = ({ project }) => {
   return (
-    <div className="card project-card">
+    <Link to={`/project/${project.id}`} className="card project-card">
       <div className="project-image">
         <img 
           src={project.thumbnail} 
           alt={project.title}
         />
-        <div className="project-overlay">
-          <div className="project-links">
-            <a 
-              href={project.liveUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="project-link"
-            >
-              <ExternalLink size={14} />
-              Live
-            </a>
-            <a 
-              href={project.githubUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="project-link"
-            >
-              <Github size={14} />
-              Code
-            </a>
-          </div>
-        </div>
       </div>
       
       <div className="project-content">
@@ -55,15 +33,8 @@ const ProjectCard = ({ project }) => {
           )}
         </div>
         
-        <Link 
-          to={`/project/${project.id}`}
-          className="read-more"
-        >
-          Read More
-          <ExternalLink size={16} />
-        </Link>
       </div>
-    </div>
+    </Link>
   )
 }
 

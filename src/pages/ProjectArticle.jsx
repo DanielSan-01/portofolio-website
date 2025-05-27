@@ -1,12 +1,10 @@
 import { useParams, Link } from 'react-router-dom'
 import { projects } from '../data/projects'
-import { ArrowLeft, ExternalLink, Github, Share2, Copy } from 'lucide-react'
-import { useState } from 'react'
+import { ArrowLeft, ExternalLink, Github } from 'lucide-react'
 import './ProjectArticle.css'
 
 const ProjectArticle = () => {
   const { projectId } = useParams()
-  const [copySuccess, setCopySuccess] = useState(false)
   
   const project = projects.find(p => p.id === projectId)
   
@@ -23,16 +21,6 @@ const ProjectArticle = () => {
         </div>
       </div>
     )
-  }
-
-  const handleCopyLink = async () => {
-    try {
-      await navigator.clipboard.writeText(window.location.href)
-      setCopySuccess(true)
-      setTimeout(() => setCopySuccess(false), 2000)
-    } catch (err) {
-      console.error('Failed to copy link:', err)
-    }
   }
 
   return (
@@ -68,13 +56,6 @@ const ProjectArticle = () => {
               <Github size={20} />
               View Repository
             </a>
-            <button 
-              onClick={handleCopyLink}
-              className="btn-secondary"
-            >
-              {copySuccess ? <Share2 size={20} /> : <Copy size={20} />}
-              {copySuccess ? 'Copied!' : 'Share'}
-            </button>
           </div>
         </header>
 
