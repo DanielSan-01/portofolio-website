@@ -12,7 +12,6 @@ const Home = () => {
           <div className="hero-content">
             <h1 className="hero-title">
               DanielSan
-              <span className="hero-subtitle">Portfolio</span>
             </h1>
             <p className="hero-description">
               Frontend Developer student at Noroff Fagskole, passionate about creating beautiful, 
@@ -72,6 +71,86 @@ const Home = () => {
                 my current skills in creating responsive, accessible, and performant web applications. 
                 Currently studying in Bergen, Norway, I'm passionate about frontend development and continuously learning new technologies.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Languages and Tools Section */}
+      <section className="languages-section">
+        <div className="container-custom">
+          <div className="section-header">
+            <h2 className="section-title">
+              <Code size={32} />
+              Languages and Tools
+            </h2>
+            <p className="section-description">
+              Technologies and design tools I use to create modern, responsive web applications from concept to deployment
+            </p>
+          </div>
+          
+          <div className="languages-grid">
+            <div className="language-item">
+              <div className="language-icon html">
+                <span>HTML5</span>
+              </div>
+              <span className="language-name">HTML5</span>
+            </div>
+            
+            <div className="language-item">
+              <div className="language-icon css">
+                <span>CSS3</span>
+              </div>
+              <span className="language-name">CSS3</span>
+            </div>
+            
+            <div className="language-item">
+              <div className="language-icon js">
+                <span>JS</span>
+              </div>
+              <span className="language-name">JavaScript</span>
+            </div>
+            
+            <div className="language-item">
+              <div className="language-icon react">
+                <span>⚛️</span>
+              </div>
+              <span className="language-name">React</span>
+            </div>
+            
+            <div className="language-item">
+              <div className="language-icon vite">
+                <span>⚡</span>
+              </div>
+              <span className="language-name">Vite</span>
+            </div>
+            
+            <div className="language-item">
+              <div className="language-icon tailwind">
+                <span>TW</span>
+              </div>
+              <span className="language-name">Tailwind CSS</span>
+            </div>
+            
+            <div className="language-item">
+              <div className="language-icon figma">
+                <span>🎨</span>
+              </div>
+              <span className="language-name">Figma</span>
+            </div>
+            
+            <div className="language-item">
+              <div className="language-icon illustrator">
+                <span>Ai</span>
+              </div>
+              <span className="language-name">Illustrator</span>
+            </div>
+            
+            <div className="language-item">
+              <div className="language-icon photoshop">
+                <span>Ps</span>
+              </div>
+              <span className="language-name">Photoshop</span>
             </div>
           </div>
         </div>

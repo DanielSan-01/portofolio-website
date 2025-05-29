@@ -4,14 +4,35 @@
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: 
+    var(--gradient-hero-overlay),
+    url('../assets/norway-banner.webp') center/cover no-repeat;
   padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-hero-before);
+  z-index: 1;
 }
 
 .hero-content {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  color: white;
+  color: var(--text-white);
   animation: fadeIn 0.6s ease-out;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-title {
@@ -62,7 +83,7 @@
 /* Projects Section */
 .projects-section {
   padding: 4rem 0;
-  background-color: #f9fafb;
+  background-color: var(--bg-secondary);
 }
 
 .section-header {
@@ -73,13 +94,13 @@
 .section-title {
   font-size: 2.25rem;
   font-weight: bold;
-  color: #1a1a1a;
+  color: var(--accent-blue);
   margin-bottom: 1rem;
 }
 
 .section-description {
   font-size: 1.125rem;
-  color: #6b7280;
+  color: var(--text-secondary);
   max-width: 48rem;
   margin: 0 auto;
   line-height: 1.6;
@@ -94,7 +115,7 @@
 /* About Section */
 .about-section {
   padding: 4rem 0;
-  background: white;
+  background: var(--surface-primary);
 }
 
 .about-content {
@@ -106,7 +127,7 @@
 .about-title {
   font-size: 2.25rem;
   font-weight: bold;
-  color: #1a1a1a;
+  color: var(--accent-blue);
   margin-bottom: 2rem;
 }
 
@@ -118,7 +139,7 @@
 
 .about-text p {
   font-size: 1.125rem;
-  color: #6b7280;
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -195,4 +216,143 @@
   .about-title {
     font-size: 3rem;
   }
+}
+
+/* Languages and Tools Section */
+.languages-section {
+  padding: 4rem 0;
+  background: var(--bg-primary);
+}
+
+.languages-section .section-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.language-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.language-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.language-icon:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.language-icon.html {
+  background: linear-gradient(135deg, #e34c26, #f06529);
+}
+
+.language-icon.css {
+  background: linear-gradient(135deg, #1572b6, #33a9dc);
+}
+
+.language-icon.js {
+  background: linear-gradient(135deg, #f7df1e, #f0db4f);
+  color: #323330;
+}
+
+.language-icon.react {
+  background: linear-gradient(135deg, #61dafb, #21d4fd);
+  font-size: 2rem;
+}
+
+.language-icon.vite {
+  background: linear-gradient(135deg, #646cff, #747bff);
+  font-size: 2rem;
+}
+
+.language-icon.tailwind {
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+}
+
+.language-icon.figma {
+  background: linear-gradient(135deg, #f24e1e, #ff7262);
+  font-size: 2rem;
+}
+
+.language-icon.illustrator {
+  background: linear-gradient(135deg, #ff9a00, #ffb340);
+  color: #330000;
+}
+
+.language-icon.photoshop {
+  background: linear-gradient(135deg, #31a8ff, #0078d4);
+}
+
+.language-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.currently-learning {
+  text-align: center;
+  padding: 2rem;
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.learning-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  margin-bottom: 1.5rem;
+}
+
+.learning-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.learning-item {
+  background: var(--gradient-primary);
+  color: var(--text-white);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.learning-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 } 

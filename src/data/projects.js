@@ -1,6 +1,6 @@
 // Import actual project images
 import holidazeImg from '../assets/holidaze.png'
-import thespotImg from '../assets/thespot.png'
+import thespotImg from '../assets/thespot2nd.png'
 import cmsImg from '../assets/cms.png'
 import auctionHouseImg from '../assets/auction-house.png'
 

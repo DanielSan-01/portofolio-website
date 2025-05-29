@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom'
 import { ExternalLink } from 'lucide-react'
+import LazyImage from './LazyImage'
 import './ProjectCard.css'
 
 const ProjectCard = ({ project }) => {
   return (
     <Link to={`/project/${project.id}`} className="card project-card">
       <div className="project-image">
-        <img 
+        <LazyImage 
           src={project.thumbnail} 
           alt={project.title}
+          className="project-image"
         />
       </div>
       

@@ -38,7 +38,7 @@ main {
 
 /* Utility Classes */
 .gradient-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-primary);
 }
 
 .gradient-text {
@@ -49,8 +49,8 @@ main {
 }
 
 .tech-badge {
-  background: linear-gradient(to right, #667eea, #764ba2);
-  color: white;
+  background: var(--gradient-primary);
+  color: var(--text-white);
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.875rem;
@@ -58,8 +58,8 @@ main {
 }
 
 .btn-primary {
-  background: linear-gradient(to right, #667eea, #764ba2);
-  color: white;
+  background: var(--btn-primary-bg);
+  color: var(--text-white);
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   font-weight: 600;
@@ -73,14 +73,15 @@ main {
 }
 
 .btn-primary:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -3px var(--shadow-lg);
   transform: translateY(-2px);
+  background: var(--btn-primary-hover);
 }
 
 .btn-secondary {
-  background: white;
-  color: #667eea;
-  border: 2px solid #667eea;
+  background: var(--btn-secondary-hover-bg);
+  color: var(--btn-secondary-hover-text);
+  border: 2px solid var(--btn-secondary-border);
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   font-weight: 600;
@@ -93,20 +94,21 @@ main {
 }
 
 .btn-secondary:hover {
-  background: #667eea;
-  color: white;
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
   transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px var(--shadow-md);
 }
 
 .card {
-  background: white;
+  background: var(--surface-primary);
   border-radius: 1rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px var(--shadow-md);
   transition: all 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 25px -5px var(--shadow-lg);
   transform: translateY(-8px);
 }
 
@@ -128,7 +130,7 @@ main {
 
 /* Focus styles for accessibility */
 *:focus {
-  outline: 2px solid #667eea;
+  outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
 }
 

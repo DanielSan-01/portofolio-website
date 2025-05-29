@@ -31,28 +31,6 @@ const Projects = () => {
                     src={project.image} 
                     alt={project.title}
                   />
-                  <div className="project-big-overlay">
-                    <div className="project-big-links">
-                      <a 
-                        href={project.liveUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="project-big-link"
-                      >
-                        <ExternalLink size={20} />
-                        Live Demo
-                      </a>
-                      <a 
-                        href={project.githubUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="project-big-link"
-                      >
-                        <Github size={20} />
-                        Source Code
-                      </a>
-                    </div>
-                  </div>
                 </div>
                 
                 <div className="project-big-content">

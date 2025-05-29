@@ -1,6 +1,8 @@
 import { useParams, Link } from 'react-router-dom'
 import { projects } from '../data/projects'
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react'
+import SEO from '../components/SEO'
+import LazyImage from '../components/LazyImage'
 import './ProjectArticle.css'
 
 const ProjectArticle = () => {
@@ -25,6 +27,11 @@ const ProjectArticle = () => {
 
   return (
     <article className="project-article">
+      <SEO 
+        title={`${project.title} - DanielSan Portfolio`}
+        description={project.description}
+        keywords={`${project.technologies.join(', ')}, project, portfolio, danielsan`}
+      />
       <div className="container-custom">
         {/* Back Navigation */}
         <Link to="/" className="back-link">
@@ -62,9 +69,10 @@ const ProjectArticle = () => {
         {/* Project Image */}
         <div className="article-image">
           <div className="image-container">
-            <img 
+            <LazyImage 
               src={project.image} 
               alt={project.title}
+              className="project-image"
             />
           </div>
           <p className="image-caption">{project.imageCaption}</p>
