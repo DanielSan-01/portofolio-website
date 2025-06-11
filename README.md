@@ -18,7 +18,6 @@ This portfolio showcases three main projects:
 
 ### Prerequisites
 
-- Node.js (version 16 or higher)
 - npm or yarn
 
 ### Installation
