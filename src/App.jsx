@@ -11,7 +11,7 @@ import './App.css'
 function App() {
   return (
     <ErrorBoundary>
-      <Router>
+      <Router basename="/portofolio-website">
         <div className="App">
           <SkipLink />
           <Header />
