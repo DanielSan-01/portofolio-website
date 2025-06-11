@@ -25,20 +25,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- GitHub Pages SPA redirect script -->
+    <title>DanielSan - Frontend Developer Portfolio</title>
+  </head>
+  <body>
+    <div id="root">
+      <!-- Loading fallback -->
+      <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: Inter, sans-serif;">
+        <div style="text-align: center;">
+          <div style="width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #10b981; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 16px;"></div>
+          <p style="color: #666; font-size: 16px;">Loading portfolio...</p>
+        </div>
+      </div>
+      <style>
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      </style>
+    </div>
+    
+    <!-- GitHub Pages SPA redirect script - run only when needed -->
     <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      // This script checks to see if a redirect is present in the query string,
-      // converts it back into the correct url and adds it to the
-      // browser's history using window.history.replaceState(...),
-      // which won't cause the browser to attempt to load the new url.
-      // When the single page app is loaded further down in this file,
-      // the correct url will be waiting in the browser's history for
-      // the single page app to route accordingly.
+      // Single Page Apps for GitHub Pages - only run if there's a redirect
       (function(l) {
-        if (l.search[1] === '/' ) {
+        if (l.search && l.search[1] === '/') {
           var decoded = l.search.slice(1).split('&').map(function(s) { 
             return s.replace(/~and~/g, '&')
           }).join('?');
@@ -49,10 +59,6 @@
       }(window.location))
     </script>
     
-    <title>DanielSan - Frontend Developer Portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
