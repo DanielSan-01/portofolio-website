@@ -99,9 +99,9 @@ const Home = () => {
             
             <div className="language-item">
               <div className="language-icon css">
-                <span>CSS3</span>
+                <span>CSS</span>
               </div>
-              <span className="language-name">CSS3</span>
+              <span className="language-name">CSS</span>
             </div>
             
             <div className="language-item">

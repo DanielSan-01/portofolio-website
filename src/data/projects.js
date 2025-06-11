@@ -44,7 +44,7 @@ export const projects = [
       <h3>Self-Assessment</h3>
       <p>This project represents a significant milestone in my development journey. I successfully integrated multiple complex features including user management, booking systems, and dashboard analytics while maintaining clean, maintainable code. The use of modern tools like Vite and Tailwind CSS improved my development workflow considerably, and the project demonstrates my ability to create production-ready applications.</p>
     `,
-    technologies: ['React', 'Vite', 'Tailwind CSS', 'JavaScript', 'HTML5', 'CSS3']
+    technologies: ['React', 'Vite', 'Tailwind CSS', 'JavaScript', 'HTML5', 'CSS']
   },
   {
     id: 'agency2-fork',
@@ -85,7 +85,7 @@ export const projects = [
         <h3>Self-Assessment</h3>
         <p>This project demonstrated my ability to create visually striking websites that balance aesthetics with functionality. Working with the Bergen cityscape background taught me valuable lessons about image optimization, visual hierarchy, and creating engaging user experiences. The event platform concept helped me understand how to present information in an organized, user-friendly manner.</p>
     `,
-    technologies: ['JavaScript', 'CSS3', 'HTML5', 'Responsive Design']
+    technologies: ['JavaScript', 'CSS', 'HTML5', 'Responsive Design']
   },
   {
     id: 'community-science-museum',
@@ -126,7 +126,7 @@ export const projects = [
         <h3>Self-Assessment</h3>
         <p>This project demonstrated my ability to create engaging, educational websites that balance visual appeal with functionality. The colorful, modern design challenged me to work with vibrant color schemes while maintaining professionalism and readability. Incorporating inspirational content like Einstein's quote taught me about the importance of meaningful content in educational design. This foundation project proved invaluable for understanding design principles that I've applied to more complex projects.</p>
     `,
-    technologies: ['HTML5', 'CSS3', 'Responsive Design', 'Web Accessibility']
+    technologies: ['HTML5', 'CSS', 'Responsive Design', 'Web Accessibility']
   },
   {
     id: 'auction-house',
@@ -167,6 +167,6 @@ export const projects = [
       <h3>Self-Assessment</h3>
       <p>This project successfully demonstrates my ability to build complete eCommerce solutions using modern React development practices. The integration of search, cart management, and checkout functionality showcases my understanding of complex state management and user experience design. The use of Tailwind CSS allowed for rapid development while maintaining a professional, consistent design system.</p>
     `,
-    technologies: ['React', 'Tailwind CSS', 'JavaScript', 'HTML5', 'CSS3', 'Vite']
+    technologies: ['React', 'Tailwind CSS', 'JavaScript', 'HTML5', 'CSS', 'Vite']
   }
 ] 
