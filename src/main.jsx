@@ -6,7 +6,7 @@ import App from './App.jsx'
 // Register service worker for caching
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
+    navigator.serviceWorker.register('/portofolio-website/sw.js')
       .then((registration) => {
         console.log('SW registered: ', registration)
       })

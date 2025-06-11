@@ -1,10 +1,8 @@
 const CACHE_NAME = 'danielsan-portfolio-v1'
 const urlsToCache = [
-  '/',
-  '/projects',
-  '/static/js/bundle.js',
-  '/static/css/main.css',
-  '/vite.svg'
+  '/portofolio-website/',
+  '/portofolio-website/projects',
+  '/portofolio-website/vite.svg'
 ]
 
 // Install event - cache resources
