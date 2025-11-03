@@ -5,6 +5,8 @@
   top: 0;
   z-index: 50;
   backdrop-filter: blur(8px);
+  will-change: transform; /* Optimize for GSAP animations */
+  transform: translateY(0); /* Initial state for GSAP */
 }
 
 .header-content {

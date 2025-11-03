@@ -1,14 +1,103 @@
+import { useEffect, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { projects } from '../data/projects'
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react'
 import SEO from '../components/SEO'
 import LazyImage from '../components/LazyImage'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './ProjectArticle.css'
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger)
 
 const ProjectArticle = () => {
   const { projectId } = useParams()
   
   const project = projects.find(p => p.id === projectId)
+  
+  // Refs for animations
+  const backLinkRef = useRef(null)
+  const headerRef = useRef(null)
+  const imageRef = useRef(null)
+  const technologiesRef = useRef(null)
+  const contentRef = useRef(null)
+  const linksRef = useRef(null)
+  const otherProjectsRef = useRef(null)
+
+  useEffect(() => {
+    // Page load animation timeline
+    const pageTimeline = gsap.timeline()
+    
+    pageTimeline
+      .from(backLinkRef.current, {
+        opacity: 0,
+        x: -20,
+        duration: 0.5,
+        ease: "power2.out"
+      })
+      .from(headerRef.current.children, {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out"
+      }, "-=0.2")
+      .from(imageRef.current, {
+        opacity: 0,
+        scale: 0.95,
+        duration: 0.8,
+        ease: "power2.out"
+      }, "-=0.4")
+
+    // Animate sections on scroll
+    const sections = [
+      { ref: technologiesRef, delay: 0.1 },
+      { ref: contentRef, delay: 0.2 },
+      { ref: linksRef, delay: 0.15 },
+      { ref: otherProjectsRef, delay: 0.1 }
+    ]
+
+    sections.forEach(({ ref, delay }) => {
+      if (ref.current) {
+        gsap.from(ref.current.children, {
+          opacity: 0,
+          y: 40,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        })
+      }
+    })
+
+    // Animate technology badges
+    if (technologiesRef.current) {
+      gsap.from(".tech-badge", {
+        opacity: 0,
+        scale: 0.8,
+        y: 20,
+        duration: 0.5,
+        stagger: 0.05,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: technologiesRef.current,
+          start: "top 85%",
+          toggleActions: "play none none reverse"
+        }
+      })
+    }
+
+    // Cleanup
+    return () => {
+      pageTimeline.kill()
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+    }
+  }, [projectId])
   
   if (!project) {
     return (
@@ -34,13 +123,13 @@ const ProjectArticle = () => {
       />
       <div className="container-custom">
         {/* Back Navigation */}
-        <Link to="/" className="back-link">
+        <Link ref={backLinkRef} to="/" className="back-link">
           <ArrowLeft size={20} />
           Back to Portfolio
         </Link>
 
         {/* Article Header */}
-        <header className="article-header">
+        <header ref={headerRef} className="article-header">
           <h1 className="article-title">{project.title}</h1>
           <p className="article-description">{project.description}</p>
           
@@ -67,7 +156,7 @@ const ProjectArticle = () => {
         </header>
 
         {/* Project Image */}
-        <div className="article-image">
+        <div ref={imageRef} className="article-image">
           <div className="image-container">
             <LazyImage 
               src={project.image} 
@@ -79,7 +168,7 @@ const ProjectArticle = () => {
         </div>
 
         {/* Technologies */}
-        <div className="technologies-section">
+        <div ref={technologiesRef} className="technologies-section">
           <h2>Technologies Used</h2>
           <div className="technologies-grid">
             {project.technologies.map((tech, index) => (
@@ -89,7 +178,7 @@ const ProjectArticle = () => {
         </div>
 
         {/* Main Content - Reflections */}
-        <div className="article-content">
+        <div ref={contentRef} className="article-content">
           <div 
             className="reflections-content"
             dangerouslySetInnerHTML={{ __html: project.reflections }}
@@ -97,7 +186,7 @@ const ProjectArticle = () => {
         </div>
 
         {/* Project Links */}
-        <div className="project-links">
+        <div ref={linksRef} className="project-links">
           <h2>Project Resources</h2>
           <div className="links-grid">
             <a 
@@ -128,7 +217,7 @@ const ProjectArticle = () => {
         </div>
 
         {/* Navigation to other projects */}
-        <div className="other-projects">
+        <div ref={otherProjectsRef} className="other-projects">
           <h2>Other Projects</h2>
           <div className="other-projects-grid">
             {projects

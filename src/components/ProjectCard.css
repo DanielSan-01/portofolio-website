@@ -4,13 +4,11 @@
   text-decoration: none;
   color: inherit;
   display: block;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  transform: translateY(-4px);
+  /* Removed transform from CSS to avoid conflict with GSAP */
   box-shadow: 0 10px 25px var(--shadow-lg);
 }
 
 .project-card:hover {
-  transform: translateY(0);
   box-shadow: 0 4px 6px var(--shadow-md);
 }
 

@@ -1,12 +1,85 @@
-import React from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FolderOpen, Github, Linkedin, Mail } from 'lucide-react'
 import DarkModeToggle from './DarkModeToggle'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './Header.css'
 
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger)
+
 const Header = () => {
+  const headerRef = useRef(null)
+  const [lastScrollY, setLastScrollY] = useState(0)
+
+  useEffect(() => {
+    let scrollTrigger
+
+    // Hide header on scroll down, show on scroll up
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      const header = headerRef.current
+
+      if (currentScrollY > 100) {  // Only animate after scrolling past 100px
+        if (currentScrollY > lastScrollY) {
+          // Scrolling down - hide header
+          gsap.to(header, {
+            y: -100,
+            duration: 0.3,
+            ease: "power2.in"
+          })
+        } else {
+          // Scrolling up - show header
+          gsap.to(header, {
+            y: 0,
+            duration: 0.3,
+            ease: "power2.out"
+          })
+        }
+      } else {
+        // At top of page - ensure header is visible
+        gsap.to(header, {
+          y: 0,
+          duration: 0.3,
+          ease: "power2.out"
+        })
+      }
+
+      setLastScrollY(currentScrollY)
+    }
+
+    // Throttle scroll events for better performance
+    let ticking = false
+    const throttledScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll()
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener('scroll', throttledScroll, { passive: true })
+
+    // Initial animation - fade in header on mount
+    gsap.from(headerRef.current, {
+      y: -50,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.out"
+    })
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('scroll', throttledScroll)
+      if (scrollTrigger) scrollTrigger.kill()
+    }
+  }, [lastScrollY])
+
   return (
-    <header className="header">
+    <header ref={headerRef} className="header">
       <div className="container-custom">
         <div className="header-content">
           <Link to="/" className="logo">

@@ -1,17 +1,80 @@
+import { useEffect, useRef } from 'react'
 import { projects } from '../data/projects'
 import { Link } from 'react-router-dom'
 import { ExternalLink, Github, Calendar, Code, Star } from 'lucide-react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './Projects.css'
 
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger)
+
 const Projects = () => {
+  const heroTitleRef = useRef(null)
+  const heroDescriptionRef = useRef(null)
+  const projectsGridRef = useRef(null)
+  const additionalProjectsRef = useRef(null)
+
+  useEffect(() => {
+    // Hero section animation
+    const heroTimeline = gsap.timeline()
+    
+    heroTimeline.from(heroTitleRef.current, {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      ease: "power2.out"
+    })
+    .from(heroDescriptionRef.current, {
+      opacity: 0,
+      y: 20,
+      duration: 0.8,
+      ease: "power2.out"
+    }, "-=0.4")
+
+    // Animate project cards with stagger on scroll
+    gsap.from(".project-big-card", {
+      opacity: 0,
+      y: 60,
+      scale: 0.95,
+      duration: 0.9,
+      stagger: 0.15,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: projectsGridRef.current,
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+      }
+    })
+
+    // Animate additional projects section
+    gsap.from(additionalProjectsRef.current, {
+      opacity: 0,
+      y: 40,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: additionalProjectsRef.current,
+        start: "top 85%",
+        toggleActions: "play none none reverse"
+      }
+    })
+
+    // Cleanup
+    return () => {
+      heroTimeline.kill()
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+    }
+  }, [])
+
   return (
     <div className="projects-page">
       {/* Hero Section */}
       <section className="projects-hero">
         <div className="container-custom">
           <div className="projects-hero-content">
-            <h1 className="projects-hero-title">My Projects</h1>
-            <p className="projects-hero-description">
+            <h1 ref={heroTitleRef} className="projects-hero-title">My Projects</h1>
+            <p ref={heroDescriptionRef} className="projects-hero-description">
               A comprehensive showcase of my development journey at Noroff Fagskole. 
               Each project represents a milestone in my learning process, demonstrating 
               different technologies, design patterns, and problem-solving approaches.
@@ -23,7 +86,7 @@ const Projects = () => {
       {/* Projects Grid */}
       <section className="projects-showcase">
         <div className="container-custom">
-          <div className="projects-big-grid">
+          <div ref={projectsGridRef} className="projects-big-grid">
             {projects.map((project) => (
               <div key={project.id} className="project-big-card">
                 <div className="project-big-image">
@@ -96,7 +159,7 @@ const Projects = () => {
       </section>
 
       {/* Additional Projects Section */}
-      <section className="additional-projects">
+      <section ref={additionalProjectsRef} className="additional-projects">
         <div className="container-custom">
           <div className="additional-projects-content">
             <h2 className="additional-projects-title">More Projects Coming Soon</h2>
