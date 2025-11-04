@@ -52,37 +52,45 @@ const Home = () => {
 
       // Animate project cards - always animate, whether scrolling or already visible
       if (projectsGridRef.current) {
-        const cards = gsap.utils.toArray(".project-card")
-        
-        // Check if section is already in viewport
-        const rect = projectsGridRef.current.getBoundingClientRect()
-        const isVisible = rect.top < window.innerHeight * 0.9
-        
-        if (isVisible) {
-          // Already visible - animate after hero animation completes
-          gsap.from(cards, {
-            opacity: 0,
-            y: 50,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power2.out",
-            delay: 1.2  // Wait for hero animation to finish
-          })
-        } else {
-          // Not visible - use scroll trigger
-          gsap.from(cards, {
-            opacity: 0,
-            y: 50,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: projectsGridRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none"
-            }
-          })
-        }
+        // Use requestAnimationFrame to ensure DOM is ready
+        requestAnimationFrame(() => {
+          const cards = gsap.utils.toArray(".project-card")
+          
+          if (cards.length === 0) return // Safety check
+          
+          // Ensure initial state is set (CSS might not be applied yet)
+          gsap.set(cards, { opacity: 0, y: 50 })
+          
+          // Check if section is already in viewport
+          const rect = projectsGridRef.current.getBoundingClientRect()
+          const isVisible = rect.top < window.innerHeight * 0.9
+          
+          if (isVisible) {
+            // Already visible - animate after hero animation completes
+            gsap.to(cards, {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              stagger: 0.15,
+              ease: "power2.out",
+              delay: 1.2  // Wait for hero animation to finish
+            })
+          } else {
+            // Not visible - use scroll trigger
+            gsap.to(cards, {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              stagger: 0.15,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: projectsGridRef.current,
+                start: "top 85%",
+                toggleActions: "play none none none"
+              }
+            })
+          }
+        })
       }
 
       // Animate about section on scroll

@@ -14,12 +14,16 @@ const Header = () => {
   const [lastScrollY, setLastScrollY] = useState(0)
 
   useEffect(() => {
-    let scrollTrigger
+    const header = headerRef.current
+    if (!header) return
+
+    // Ensure header is visible and positioned correctly initially
+    // Don't set opacity here - let CSS handle it, only ensure transform
+    gsap.set(header, { y: 0 })
 
     // Hide header on scroll down, show on scroll up
     const handleScroll = () => {
       const currentScrollY = window.scrollY
-      const header = headerRef.current
 
       if (currentScrollY > 100) {  // Only animate after scrolling past 100px
         if (currentScrollY > lastScrollY) {
@@ -63,18 +67,27 @@ const Header = () => {
 
     window.addEventListener('scroll', throttledScroll, { passive: true })
 
-    // Initial animation - fade in header on mount
-    gsap.from(headerRef.current, {
-      y: -50,
-      opacity: 0,
-      duration: 0.6,
-      ease: "power2.out"
-    })
+    // Initial animation - only animate y position, never touch opacity
+    // Opacity is controlled by CSS only
+    const tl = gsap.fromTo(header, 
+      { y: -20 },  // Start position - only y position
+      { 
+        y: 0,
+        duration: 0.6, 
+        ease: "power2.out",
+        delay: 0.1,
+        onComplete: () => {
+          // Clear any opacity inline styles GSAP might have set
+          if (header.style.opacity) {
+            header.style.removeProperty('opacity')
+          }
+        }
+      }
+    )
 
     // Cleanup
     return () => {
       window.removeEventListener('scroll', throttledScroll)
-      if (scrollTrigger) scrollTrigger.kill()
     }
   }, [lastScrollY])
 

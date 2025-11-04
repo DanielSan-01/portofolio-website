@@ -6,6 +6,9 @@
   display: block;
   /* Removed transform from CSS to avoid conflict with GSAP */
   box-shadow: 0 10px 25px var(--shadow-lg);
+  /* Initial state for GSAP animation - will be animated to visible */
+  opacity: 0;
+  transform: translateY(50px);
 }
 
 .project-card:hover {

@@ -26,75 +26,134 @@ const ProjectArticle = () => {
   const otherProjectsRef = useRef(null)
 
   useEffect(() => {
-    // Page load animation timeline
-    const pageTimeline = gsap.timeline()
-    
-    pageTimeline
-      .from(backLinkRef.current, {
-        opacity: 0,
-        x: -20,
-        duration: 0.5,
-        ease: "power2.out"
-      })
-      .from(headerRef.current.children, {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power2.out"
-      }, "-=0.2")
-      .from(imageRef.current, {
-        opacity: 0,
-        scale: 0.95,
-        duration: 0.8,
-        ease: "power2.out"
-      }, "-=0.4")
-
-    // Animate sections on scroll
-    const sections = [
-      { ref: technologiesRef, delay: 0.1 },
-      { ref: contentRef, delay: 0.2 },
-      { ref: linksRef, delay: 0.15 },
-      { ref: otherProjectsRef, delay: 0.1 }
-    ]
-
-    sections.forEach(({ ref, delay }) => {
-      if (ref.current) {
-        gsap.from(ref.current.children, {
-          opacity: 0,
-          y: 40,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: ref.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
+    // Use gsap.context for proper cleanup
+    const ctx = gsap.context(() => {
+      // Page load animation timeline - set initial states first, then animate
+      const pageTimeline = gsap.timeline()
+      
+      if (backLinkRef.current) {
+        gsap.set(backLinkRef.current, { opacity: 0, x: -20 })
+        pageTimeline.to(backLinkRef.current, {
+          opacity: 1,
+          x: 0,
+          duration: 0.5,
+          ease: "power2.out"
         })
       }
-    })
 
-    // Animate technology badges
-    if (technologiesRef.current) {
-      gsap.from(".tech-badge", {
-        opacity: 0,
-        scale: 0.8,
-        y: 20,
-        duration: 0.5,
-        stagger: 0.05,
-        ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: technologiesRef.current,
-          start: "top 85%",
-          toggleActions: "play none none reverse"
+      if (headerRef.current && headerRef.current.children.length > 0) {
+        const headerChildren = headerRef.current.children
+        gsap.set(headerChildren, { opacity: 0, y: 30 })
+        pageTimeline.to(headerChildren, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power2.out"
+        }, "-=0.2")
+      }
+
+      if (imageRef.current) {
+        gsap.set(imageRef.current, { opacity: 0, scale: 0.95 })
+        pageTimeline.to(imageRef.current, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          ease: "power2.out"
+        }, "-=0.4")
+      }
+
+      // Animate sections on scroll - check if already visible first
+      const sections = [
+        { ref: technologiesRef, delay: 0.1 },
+        { ref: contentRef, delay: 0.2 },
+        { ref: linksRef, delay: 0.15 },
+        { ref: otherProjectsRef, delay: 0.1 }
+      ]
+
+      sections.forEach(({ ref, delay }) => {
+        if (ref.current) {
+          const children = ref.current.children
+          if (children.length === 0) return
+
+          // Check if already in viewport
+          const rect = ref.current.getBoundingClientRect()
+          const isVisible = rect.top < window.innerHeight * 0.9
+
+          if (isVisible) {
+            // Already visible - animate immediately
+            gsap.to(children, {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              stagger: 0.1,
+              ease: "power2.out",
+              delay: 0.5
+            })
+          } else {
+            // Not visible - use scroll trigger
+            gsap.set(children, { opacity: 0, y: 40 })
+            gsap.to(children, {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              stagger: 0.1,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: ref.current,
+                start: "top 80%",
+                toggleActions: "play none none none"
+              }
+            })
+          }
         }
       })
-    }
+
+      // Animate technology badges
+      if (technologiesRef.current) {
+        const badges = gsap.utils.toArray(".tech-badge")
+        if (badges.length > 0) {
+          const rect = technologiesRef.current.getBoundingClientRect()
+          const isVisible = rect.top < window.innerHeight * 0.9
+
+          if (isVisible) {
+            gsap.to(badges, {
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              duration: 0.5,
+              stagger: 0.05,
+              ease: "back.out(1.7)",
+              delay: 0.6
+            })
+          } else {
+            gsap.set(badges, { opacity: 0, scale: 0.8, y: 20 })
+            gsap.to(badges, {
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              duration: 0.5,
+              stagger: 0.05,
+              ease: "back.out(1.7)",
+              scrollTrigger: {
+                trigger: technologiesRef.current,
+                start: "top 85%",
+                toggleActions: "play none none none"
+              }
+            })
+          }
+        }
+      }
+
+      // Refresh ScrollTrigger after a short delay
+      setTimeout(() => {
+        ScrollTrigger.refresh()
+      }, 100)
+    })
 
     // Cleanup
     return () => {
-      pageTimeline.kill()
+      ctx.revert()
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
   }, [projectId])
