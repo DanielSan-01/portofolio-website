@@ -140,28 +140,47 @@ const Home = () => {
 
   return (
     <div className="home">
-      {/* Hero Section */}
-      <section className="hero">
+      {/* Hero Section - Terminal Style */}
+      <section className="hero terminal-hero">
         <div className="container-custom">
-          <div className="hero-content">
-            <h1 ref={heroTitleRef} className="hero-title">
-              DanielSan
+          <div className="hero-content terminal-content">
+            <div className="terminal-prompt">
+              <span className="prompt-user">danielsan@portfolio</span>
+              <span className="prompt-separator">:</span>
+              <span className="prompt-path">~</span>
+              <span className="prompt-symbol">$</span>
+            </div>
+            <h1 ref={heroTitleRef} className="hero-title terminal-title">
+              Hello there, my name is Danielsan
             </h1>
-            <p ref={heroDescriptionRef} className="hero-description">
-              Frontend Developer student at Noroff Fagskole, passionate about creating beautiful, 
-              functional, and user-friendly web applications using modern technologies and best practices.
+            <div className="terminal-prompt">
+              <span className="prompt-user">danielsan@portfolio</span>
+              <span className="prompt-separator">:</span>
+              <span className="prompt-path">~</span>
+              <span className="prompt-symbol">$</span>
+              <span className="prompt-command"> cat about.txt</span>
+            </div>
+            <p ref={heroDescriptionRef} className="hero-description terminal-output">
+              me gusta programming
             </p>
-            <div ref={heroFeaturesRef} className="hero-features">
-              <div className="feature">
-                <Code size={24} />
+            <div className="terminal-prompt">
+              <span className="prompt-user">danielsan@portfolio</span>
+              <span className="prompt-separator">:</span>
+              <span className="prompt-path">~</span>
+              <span className="prompt-symbol">$</span>
+              <span className="prompt-command"> ls skills/</span>
+            </div>
+            <div ref={heroFeaturesRef} className="hero-features terminal-list">
+              <div className="feature terminal-item">
+                <span className="terminal-bullet">▶</span>
                 <span>Clean Code</span>
               </div>
-              <div className="feature">
-                <Palette size={24} />
+              <div className="feature terminal-item">
+                <span className="terminal-bullet">▶</span>
                 <span>Modern Design</span>
               </div>
-              <div className="feature">
-                <Zap size={24} />
+              <div className="feature terminal-item">
+                <span className="terminal-bullet">▶</span>
                 <span>Performance</span>
               </div>
             </div>
@@ -169,42 +188,58 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section className="projects-section">
+      {/* Projects Section - Terminal Style */}
+      <section className="projects-section terminal-section">
         <div className="container-custom">
-          <div className="section-header">
-            <h2 className="section-title">Featured Projects</h2>
-            <p className="section-description">
-              A showcase of my projects from Noroff Fagskole demonstrating skills in React development, 
-              modern web technologies, and responsive design principles.
-            </p>
+          <div className="terminal-prompt">
+            <span className="prompt-user">danielsan@portfolio</span>
+            <span className="prompt-separator">:</span>
+            <span className="prompt-path">~</span>
+            <span className="prompt-symbol">$</span>
+            <span className="prompt-command"> ls projects/</span>
+          </div>
+          <div className="section-header terminal-header">
+            <h2 className="section-title terminal-section-title">Projects</h2>
           </div>
           
-          <div ref={projectsGridRef} className="projects-grid">
-            {projects.slice(0, 3).map((project) => (
+          <div ref={projectsGridRef} className="projects-grid terminal-grid">
+            {projects.slice(0, 1).map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+          
+          <div className="terminal-prompt" style={{ marginTop: '3rem' }}>
+            <span className="prompt-user">danielsan@portfolio</span>
+            <span className="prompt-separator">:</span>
+            <span className="prompt-path">~</span>
+            <span className="prompt-symbol">$</span>
+            <span className="prompt-command"> ls earlier-projects/</span>
+          </div>
+          <h3 className="terminal-section-title" style={{ marginTop: '1rem', marginBottom: '1.5rem', fontSize: '1.25rem' }}>
+            Earlier Projects
+          </h3>
+          <div className="projects-grid terminal-grid">
+            {projects.slice(1, 4).map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section ref={aboutSectionRef} className="about-section">
+      {/* About Section - Terminal Style */}
+      <section ref={aboutSectionRef} className="about-section terminal-section">
         <div className="container-custom">
-          <div className="about-content">
-            <h2 className="about-title">About This Portfolio</h2>
-            <div className="about-text">
-              <p>
-                This portfolio showcases three key projects from my Frontend Development studies at Noroff Fagskole: 
-                Holidaze (venue booking platform), The Spot (event platform website), and Community Science Museum. Each project 
-                demonstrates my growth as a developer and includes detailed reflections on the 
-                learning process, challenges faced, and improvements made based on feedback.
-              </p>
-              <p>
-                Built with React and modern web technologies, this portfolio itself represents 
-                my current skills in creating responsive, accessible, and performant web applications. 
-                Currently studying in Bergen, Norway, I'm passionate about frontend development and continuously learning new technologies.
-              </p>
+          <div className="terminal-prompt">
+            <span className="prompt-user">danielsan@portfolio</span>
+            <span className="prompt-separator">:</span>
+            <span className="prompt-path">~</span>
+            <span className="prompt-symbol">$</span>
+            <span className="prompt-command"> cat README.md</span>
+          </div>
+          <div className="about-content terminal-content">
+            <h2 className="about-title terminal-section-title">Earlier Projects</h2>
+            <div className="about-text terminal-output">
+              <p>During my studies, I built these projects to develop my frontend fundamentals:</p>
             </div>
           </div>
         </div>
@@ -213,78 +248,103 @@ const Home = () => {
       {/* Languages and Tools Section */}
       <section className="languages-section">
         <div className="container-custom">
-          <div className="section-header">
-            <h2 className="section-title">
-              <Code size={32} />
-              Languages and Tools
-            </h2>
-            <p className="section-description">
-              Technologies and design tools I use to create modern, responsive web applications from concept to deployment
-            </p>
+          <div className="terminal-prompt">
+            <span className="prompt-user">danielsan@portfolio</span>
+            <span className="prompt-separator">:</span>
+            <span className="prompt-path">~</span>
+            <span className="prompt-symbol">$</span>
+            <span className="prompt-command"> which tools</span>
+          </div>
+          <div className="section-header terminal-header">
+            <h2 className="section-title terminal-section-title">Languages and Tools</h2>
           </div>
           
-          <div ref={languagesGridRef} className="languages-grid">
-            <div className="language-item">
-              <div className="language-icon html">
-                <span>HTML5</span>
-              </div>
+          <div ref={languagesGridRef} className="languages-grid terminal-grid">
+            <div className="language-item terminal-item">
+              <span className="terminal-bullet">▶</span>
+              <span className="language-name">Visual Studio Code</span>
+            </div>
+            
+            <div className="language-item terminal-item">
+              <span className="terminal-bullet">▶</span>
               <span className="language-name">HTML5</span>
             </div>
             
-            <div className="language-item">
-              <div className="language-icon css">
-                <span>CSS</span>
-              </div>
-              <span className="language-name">CSS</span>
+            <div className="language-item terminal-item">
+              <span className="terminal-bullet">▶</span>
+              <span className="language-name">CSS3</span>
             </div>
             
-            <div className="language-item">
-              <div className="language-icon js">
-                <span>JS</span>
-              </div>
+            <div className="language-item terminal-item">
+              <span className="terminal-bullet">▶</span>
               <span className="language-name">JavaScript</span>
             </div>
             
-            <div className="language-item">
-              <div className="language-icon react">
-                <span>⚛️</span>
-              </div>
+            <div className="language-item terminal-item">
+              <span className="terminal-bullet">▶</span>
+              <span className="language-name">TypeScript</span>
+            </div>
+            
+            <div className="language-item terminal-item">
+              <span className="terminal-bullet">▶</span>
+              <span className="language-name">Node.js</span>
+            </div>
+            
+            <div className="language-item terminal-item">
+              <span className="terminal-bullet">▶</span>
+              <span className="language-name">.NET</span>
+            </div>
+            
+            <div className="language-item terminal-item">
+              <span className="terminal-bullet">▶</span>
+              <span className="language-name">PostgreSQL</span>
+            </div>
+            
+            <div className="language-item terminal-item">
+              <span className="terminal-bullet">▶</span>
               <span className="language-name">React</span>
             </div>
-            
-            <div className="language-item">
-              <div className="language-icon vite">
-                <span>⚡</span>
-              </div>
-              <span className="language-name">Vite</span>
+          </div>
+        </div>
+      </section>
+
+      {/* How to reach me Section */}
+      <section className="contact-section terminal-section">
+        <div className="container-custom">
+          <div className="terminal-prompt">
+            <span className="prompt-user">danielsan@portfolio</span>
+            <span className="prompt-separator">:</span>
+            <span className="prompt-path">~</span>
+            <span className="prompt-symbol">$</span>
+            <span className="prompt-command"> cat contact.txt</span>
+          </div>
+          <h2 className="terminal-section-title">How to reach me</h2>
+          <div className="terminal-list" style={{ marginTop: '1rem' }}>
+            <div className="terminal-item">
+              <span className="terminal-bullet">▶</span>
+              <a href="/portofolio-website" className="terminal-link">Portfolio</a>
             </div>
-            
-            <div className="language-item">
-              <div className="language-icon tailwind">
-                <span>TW</span>
-              </div>
-              <span className="language-name">Tailwind CSS</span>
+            <div className="terminal-item">
+              <span className="terminal-bullet">▶</span>
+              <a 
+                href="https://www.linkedin.com/in/daniel-%C3%B8stensen-84483ab0/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="terminal-link"
+              >
+                LinkedIn
+              </a>
             </div>
-            
-            <div className="language-item">
-              <div className="language-icon figma">
-                <span>🎨</span>
-              </div>
-              <span className="language-name">Figma</span>
-            </div>
-            
-            <div className="language-item">
-              <div className="language-icon illustrator">
-                <span>Ai</span>
-              </div>
-              <span className="language-name">Illustrator</span>
-            </div>
-            
-            <div className="language-item">
-              <div className="language-icon photoshop">
-                <span>Ps</span>
-              </div>
-              <span className="language-name">Photoshop</span>
+            <div className="terminal-item">
+              <span className="terminal-bullet">▶</span>
+              <a 
+                href="https://github.com/DanielSan-01" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="terminal-link"
+              >
+                My repos
+              </a>
             </div>
           </div>
         </div>
