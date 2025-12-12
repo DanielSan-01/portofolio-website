@@ -6,6 +6,32 @@ import auctionHouseImg from '../assets/auction-house.png'
 
 export const projects = [
   {
+    id: 'cs-inventory-tracker',
+    title: 'CS Inventory Tracker',
+    shortDescription: 'My first fullstack application, for CS2 players where they can track and analyse their ingame inventory. The solution also includes item purchase planner and loadout cooker. Using steam API, user can log in and import their inventory. Site is not affiliated with Valve.',
+    thumbnail: holidazeImg, // Placeholder
+    image: holidazeImg,
+    imageCaption: 'CS Inventory Tracker - Fullstack application for CS2 inventory management',
+    liveUrl: 'https://www.csinvtracker.com',
+    githubUrl: 'https://github.com/DanielSan-01/csInvTracker',
+    description: `My first fullstack application, for CS2 players where they can track and analyse their ingame inventory. The solution also includes item purchase planner and loadout cooker. Using steam API, user can log in and import their inventory. Site is not affiliated with Valve.`,
+    reflections: `
+      <h3>Core Features</h3>
+      <ul>
+        <li>Full steam inventory and authentication (avatar and displayname) - tracks skins with float, price, stickers and cost</li>
+        <li>Goal Planner - set target and track savings progress</li>
+        <li>Loadout builder - create and save custom loadouts</li>
+        <li>Analytics of users inventory with piecharts of inv value, best and worst performers</li>
+      </ul>
+      
+      <h3>Tech Stack</h3>
+      <p><strong>Frontend:</strong> Next.js, TypeScript, GSAP, Recharts and Jest</p>
+      <p><strong>Backend:</strong> .NET 9.0, ASP.NET Core, EF core, PostgressSQL and Swagger</p>
+      <p><strong>DevOps:</strong> Railway, Vercel, Docker</p>
+    `,
+    technologies: ['Next.js', 'TypeScript', 'GSAP', 'Recharts', 'Jest', '.NET 9.0', 'ASP.NET Core', 'EF Core', 'PostgreSQL', 'Swagger', 'Railway', 'Vercel', 'Docker']
+  },
+  {
     id: 'holidaze',
     title: 'Holidaze - Venue Booking Platform',
     shortDescription: 'A modern venue booking application built with React, Vite, and Tailwind CSS for sharing and booking venues.',

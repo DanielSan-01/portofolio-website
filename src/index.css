@@ -1,6 +1,18 @@
-/* CSS Custom Properties */
+/* CSS Custom Properties - Terminal Theme */
 :root {
-  /* Emerald Green Color Palette */
+  /* Terminal Color Palette */
+  --terminal-bg: #000000;
+  --terminal-text: #00ff00;
+  --terminal-text-dim: #00cc00;
+  --terminal-text-bright: #00ff88;
+  --terminal-prompt: #00ff00;
+  --terminal-cursor: #00ff00;
+  --terminal-border: #00ff00;
+  --terminal-link: #00ff88;
+  --terminal-link-hover: #00ff00;
+  --terminal-accent: #00cc00;
+  
+  /* Emerald Green Color Palette (kept for compatibility) */
   --emerald-50: #ecfdf5;
   --emerald-100: #d1fae5;
   --emerald-200: #a7f3d0;
@@ -250,8 +262,22 @@
   box-sizing: border-box;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 body {
