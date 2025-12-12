@@ -10,92 +10,66 @@ const ProjectCard = ({ project }) => {
   const imageRef = useRef(null)
   const titleRef = useRef(null)
 
-  // GSAP hover animations - smoother than CSS transitions
+  // GSAP hover animations - terminal style
   const handleMouseEnter = () => {
     const card = cardRef.current
-    const image = imageRef.current
     const title = titleRef.current
 
-    // Create a timeline for coordinated hover animations
-    const hoverTl = gsap.timeline()
-    
-    hoverTl.to(card, {
-      y: -8,  // Lift card slightly
-      duration: 0.4,
-      ease: "power2.out"
-    })
-    .to(image, {
-      scale: 1.05,  // Zoom image slightly
-      duration: 0.5,
-      ease: "power2.out"
-    }, 0)  // Start at same time as card lift
-    .to(title, {
-      color: "var(--accent-blue, #3b82f6)",  // Change title color
-      duration: 0.3,
-      ease: "power2.out"
-    }, 0.1)  // Start slightly after
+    if (card && title) {
+      gsap.to(title, {
+        color: "var(--terminal-text-bright)",
+        textShadow: "0 0 10px var(--terminal-text-bright)",
+        duration: 0.2,
+        ease: "power2.out"
+      })
+    }
   }
 
   const handleMouseLeave = () => {
-    const card = cardRef.current
-    const image = imageRef.current
     const title = titleRef.current
 
-    // Reset all animations
-    gsap.to(card, {
-      y: 0,
-      duration: 0.4,
-      ease: "power2.out"
-    })
-    gsap.to(image, {
-      scale: 1,
-      duration: 0.5,
-      ease: "power2.out"
-    })
-    gsap.to(title, {
-      color: "var(--primary, inherit)",
-      duration: 0.3,
-      ease: "power2.out"
-    })
+    if (title) {
+      gsap.to(title, {
+        color: "var(--terminal-text)",
+        textShadow: "none",
+        duration: 0.2,
+        ease: "power2.out"
+      })
+    }
   }
 
   return (
     <Link 
       to={`/project/${project.id}`} 
-      className="card project-card"
+      className="card project-card terminal-project-item"
       ref={cardRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="project-image" ref={imageRef}>
-        <LazyImage 
-          src={project.thumbnail} 
-          alt={project.title}
-          className="project-image"
-        />
-      </div>
-      
-      <div className="project-content">
-        <h3 ref={titleRef} className="project-title">
-          {project.title}
-        </h3>
-        <p className="project-description">
+      <div className="terminal-project-content">
+        <div className="terminal-file-info">
+          <span className="terminal-file-type">📁</span>
+          <h3 ref={titleRef} className="project-title terminal-project-title">
+            {project.title}
+          </h3>
+          <span className="terminal-arrow">→</span>
+        </div>
+        <p className="project-description terminal-project-description">
           {project.shortDescription}
         </p>
-        
-        <div className="project-technologies">
-          {project.technologies.slice(0, 3).map((tech, index) => (
-            <span key={index} className="tech-badge">
+        <div className="project-technologies terminal-tech-list">
+          <span className="terminal-tech-label">Tech:</span>
+          {project.technologies.slice(0, 4).map((tech, index) => (
+            <span key={index} className="tech-badge terminal-tech-badge">
               {tech}
             </span>
           ))}
-          {project.technologies.length > 3 && (
-            <span className="tech-more">
-              +{project.technologies.length - 3} more
+          {project.technologies.length > 4 && (
+            <span className="tech-more terminal-tech-more">
+              +{project.technologies.length - 4}
             </span>
           )}
         </div>
-        
       </div>
     </Link>
   )

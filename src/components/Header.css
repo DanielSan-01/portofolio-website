@@ -1,22 +1,15 @@
 .header {
-  /* Aurora-inspired gradient matching the hero section - much more opaque and solid */
-  background: 
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05)),
-    linear-gradient(135deg, 
-      rgba(16, 185, 129, 0.98) 0%, 
-      rgba(5, 150, 105, 0.98) 50%,
-      rgba(14, 165, 233, 0.98) 100%);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  /* Terminal-style header */
+  background: var(--terminal-bg);
+  border-bottom: 1px solid var(--terminal-border);
   position: sticky;
   top: 0;
   z-index: 50;
-  backdrop-filter: blur(16px) saturate(180%);
   will-change: transform; /* Optimize for GSAP animations */
   transform: translateY(0); /* Initial state for GSAP */
-  /* Ensure header is visible by default */
   opacity: 1;
-  /* Subtle border to match aurora glow */
-  border-bottom: 1px solid rgba(16, 185, 129, 0.5);
+  /* Terminal prompt style */
+  font-family: 'Courier New', monospace;
 }
 
 .header-content {
@@ -27,26 +20,24 @@
 }
 
 .logo {
-  color: var(--text-white);
+  color: var(--terminal-text);
   font-weight: bold;
   font-size: 1.25rem;
   text-decoration: none;
-  transition: transform 0.3s ease;
-  /* Add text shadow for better readability */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: color 0.2s ease;
+  font-family: 'Courier New', monospace;
+  /* Terminal text glow */
+  text-shadow: 0 0 10px var(--terminal-text);
 }
 
 .logo:hover {
-  transform: scale(1.05);
+  color: var(--terminal-text-bright);
+  text-shadow: 0 0 15px var(--terminal-text-bright);
 }
 
 .logo-text {
-  /* Bright white to match hero text */
-  background: linear-gradient(45deg, #ffffff, #f0f9ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  color: var(--terminal-text);
+  text-shadow: 0 0 10px var(--terminal-text);
 }
 
 .nav {
@@ -59,22 +50,26 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--text-white);
+  color: var(--terminal-text-dim);
   padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
-  font-weight: 500;
+  border-radius: 0;
+  font-weight: normal;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   font-size: 0.875rem;
-  /* Add text shadow for better readability */
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  font-family: 'Courier New', monospace;
+  border: 1px solid transparent;
+  /* Terminal link style */
+  text-shadow: 0 0 5px var(--terminal-text-dim);
 }
 
 .nav-link:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  /* Subtle glow effect on hover */
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+  color: var(--terminal-text);
+  background: transparent;
+  border-color: var(--terminal-border);
+  text-shadow: 0 0 10px var(--terminal-text);
+  transform: none;
+  box-shadow: none;
 }
 
 .nav-text {

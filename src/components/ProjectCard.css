@@ -1,72 +1,97 @@
-.project-card {
-  overflow: hidden;
+/* Terminal-style project card */
+.terminal-project-item {
+  overflow: visible;
   position: relative;
   text-decoration: none;
   color: inherit;
   display: block;
-  /* Removed transform from CSS to avoid conflict with GSAP */
-  box-shadow: 0 10px 25px var(--shadow-lg);
-  /* Initial state for GSAP animation - will be animated to visible */
+  background: transparent;
+  border: 1px solid var(--terminal-border);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-family: 'Courier New', monospace;
+  /* Initial state for GSAP animation */
   opacity: 0;
   transform: translateY(50px);
+  transition: all 0.3s ease;
 }
 
-.project-card:hover {
-  box-shadow: 0 4px 6px var(--shadow-md);
+.terminal-project-item:hover {
+  border-color: var(--terminal-text);
+  background: rgba(0, 255, 0, 0.05);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
 }
 
-.project-image {
-  position: relative;
-  overflow: hidden;
+.terminal-project-content {
+  padding: 0;
 }
 
-.project-image img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-  transform: scale(1.1);
+.terminal-file-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
-.project-card:hover .project-image img {
-  transform: scale(1);
+.terminal-file-type {
+  color: var(--terminal-text);
+  font-size: 1.2rem;
 }
 
-.project-content {
-  padding: 1rem;
-}
-
-.project-title {
+.terminal-project-title {
   font-size: 1.125rem;
   font-weight: bold;
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-  transition: color 0.3s ease;
+  color: var(--terminal-text);
+  margin: 0;
+  transition: color 0.2s ease;
+  font-family: 'Courier New', monospace;
 }
 
-.project-card:hover .project-title {
-  color: var(--text-primary);
+.terminal-project-item:hover .terminal-project-title {
+  color: var(--terminal-text-bright);
+  text-shadow: 0 0 10px var(--terminal-text-bright);
 }
 
-.project-description {
-  color: var(--text-secondary);
+.terminal-arrow {
+  color: var(--terminal-text-dim);
+  margin-left: auto;
+  font-size: 1.2rem;
+}
+
+.terminal-project-description {
+  color: var(--terminal-text-dim);
   font-size: 0.875rem;
-  margin-bottom: 1rem;
-  line-height: 1.5;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  font-family: 'Courier New', monospace;
 }
 
-.project-technologies {
+.terminal-tech-list {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  font-family: 'Courier New', monospace;
 }
 
-.tech-more {
-  color: var(--text-muted);
+.terminal-tech-label {
+  color: var(--terminal-text-dim);
   font-size: 0.75rem;
-  font-weight: 500;
+}
+
+.terminal-tech-badge {
+  color: var(--terminal-text);
+  font-size: 0.75rem;
   padding: 0.125rem 0.5rem;
+  border: 1px solid var(--terminal-border);
+  background: transparent;
+  font-family: 'Courier New', monospace;
+}
+
+.terminal-tech-more {
+  color: var(--terminal-text-dim);
+  font-size: 0.75rem;
+  font-family: 'Courier New', monospace;
 }
 
 /* Responsive Design */

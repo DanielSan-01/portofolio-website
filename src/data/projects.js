@@ -6,6 +6,43 @@ import auctionHouseImg from '../assets/auction-house.png'
 
 export const projects = [
   {
+    id: 'cs-inventory-tracker',
+    title: 'CS Inventory Tracker',
+    shortDescription: 'My first fullstack application for CS2 players to track and analyse their ingame inventory. Includes item purchase planner and loadout cooker.',
+    thumbnail: holidazeImg, // Placeholder - you can add a CS tracker image later
+    image: holidazeImg,
+    imageCaption: 'CS Inventory Tracker - Fullstack application for CS2 inventory management',
+    liveUrl: 'https://cs-inventory-tracker.vercel.app', // Update with actual URL
+    githubUrl: 'https://github.com/DanielSan-01/csInvTracker',
+    description: `My first fullstack application, for CS2 players where they can track and analyse their ingame inventory. The solution also includes item purchase planner and loadout cooker. Using steam API, user can log in and import their inventory. Site is not affiliated with Valve.`,
+    reflections: `
+      <h3>Core Features</h3>
+      <ul>
+        <li>Full steam inventory and authentication (avatar and displayname) - tracks skins with float, price, stickers and cost</li>
+        <li>Goal Planner - set target and track savings progress</li>
+        <li>Loadout builder - create and save custom loadouts</li>
+        <li>Analytics of users inventory with piecharts of inv value, best and worst performers</li>
+      </ul>
+      
+      <h3>Tech Stack</h3>
+      <p><strong>Frontend:</strong> Next.js, TypeScript, GSAP, Recharts and Jest</p>
+      <p><strong>Backend:</strong> .NET 9.0, ASP.NET Core, EF core, PostgressSQL and Swagger</p>
+      <p><strong>DevOps:</strong> Railway, Vercel, Docker</p>
+      
+      <h3>What I Learned</h3>
+      <p>This fullstack project taught me:</p>
+      <ul>
+        <li>Fullstack architecture with Next.js and .NET backend</li>
+        <li>Steam API integration and OAuth authentication</li>
+        <li>Database design with PostgreSQL and EF Core</li>
+        <li>Data visualization with Recharts</li>
+        <li>Docker containerization and deployment</li>
+        <li>TypeScript for type-safe development</li>
+      </ul>
+    `,
+    technologies: ['Next.js', 'TypeScript', 'GSAP', 'Recharts', 'Jest', '.NET 9.0', 'ASP.NET Core', 'EF Core', 'PostgreSQL', 'Swagger', 'Railway', 'Vercel', 'Docker']
+  },
+  {
     id: 'holidaze',
     title: 'Holidaze - Venue Booking Platform',
     shortDescription: 'A modern venue booking application built with React, Vite, and Tailwind CSS for sharing and booking venues.',
@@ -47,15 +84,15 @@ export const projects = [
     technologies: ['React', 'Vite', 'Tailwind CSS', 'JavaScript', 'HTML5', 'CSS']
   },
   {
-    id: 'agency2-fork',
-    title: 'The Spot - Event Platform Website',
-    shortDescription: 'A modern event platform website featuring Bergen cityscape, event listings, and interactive user interface.',
+    id: 'adventure-clothing',
+    title: 'Adventure Clothing E-commerce',
+    shortDescription: 'A responsive web interface for an adventure clothing brand showcasing outdoor gear and apparel with a seamless shopping experience.',
     thumbnail: thespotImg,
     image: thespotImg,
-    imageCaption: 'The Spot event platform showcasing Bergen cityscape background, upcoming events, and modern navigation design',
+    imageCaption: 'Adventure Clothing E-commerce platform showcasing outdoor gear and apparel',
     liveUrl: 'https://thespot-agency.netlify.app/',
     githubUrl: 'https://github.com/DanielSan-01/Agency2-fork',
-    description: `"The Spot" is a modern event platform website that showcases events in Bergen, Norway. The site features a stunning cityscape background, event cards with detailed information, and a clean, professional navigation system. This project demonstrates advanced CSS layout techniques and responsive design principles.`,
+    description: `A responsive web interface for an adventure clothing brand showcasing outdoor gear and apparel with a seamless shopping experience.`,
     reflections: `
               <h3>What I Learned</h3>
         <p>This project taught me valuable lessons in modern web development and design:</p>
