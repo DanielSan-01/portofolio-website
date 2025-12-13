@@ -21,7 +21,7 @@ const ASCII_BANNER = `__╱╲╲╲╲╲╲╲╲╲╲╲╲_________________
         ___________╲╱╲╲╲______________╲╱╱╱╲╲╲╲╲╱___╲╱╲╲╲____________╲╱╱╲╲╲╲╲______╲╱╲╲╲_______╲╱╱╱╲╲╲╲╲╱____╱╲╲╲╲╲╲╲╲╲_╲╱╲╲╲__╲╱╱╱╲╲╲╲╲╱___                             
          ___________╲╱╱╱_________________╲╱╱╱╱╱_____╲╱╱╱______________╲╱╱╱╱╱_______╲╱╱╱__________╲╱╱╱╱╱_____╲╱╱╱╱╱╱╱╱╱__╲╱╱╱_____╲╱╱╱╱╱_____                            `
 
-const Terminal = () => {
+const Terminal = ({ onSwitchLayout }) => {
   // Welcome message
   const welcomeMessage = {
     type: 'output',
@@ -118,6 +118,7 @@ const Terminal = () => {
           '  projects      - List all projects',
           '  contact       - How to reach me',
           '  clear         - Clear the terminal',
+          '  classic       - Switch to classic layout',
           ''
         ]
         break
@@ -205,6 +206,37 @@ const Terminal = () => {
         // Clear everything except the welcome message
         setCommandHistory([welcomeMessage])
         return
+
+      case 'classic':
+        if (typeof onSwitchLayout === 'function') {
+          output = [
+            'Switching to classic layout...',
+            ''
+          ]
+          // Add command and output to history before switching layout
+          setCommandHistory(prev => [
+            ...prev,
+            { type: 'command', content: cmd },
+            { type: 'output', content: output }
+          ])
+
+          if (cmd.trim()) {
+            setExecutedCommands(prev => {
+              const newHistory = [...prev, cmd]
+              return newHistory.slice(-50)
+            })
+          }
+
+          setHistoryIndex(-1)
+          onSwitchLayout()
+          return
+        } else {
+          output = [
+            'Classic layout is not available in this build.',
+            ''
+          ]
+        }
+        break
 
       case '':
         // Empty command, just show prompt
